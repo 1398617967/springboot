@@ -217,7 +217,7 @@ public class ArrayTools {
 class  B {
     public static void main(String[] args){
         int [] arr = {11,222,24,84,195,0};
-       arr= ArrayTools.insertSort(arr);
+        arr= ArrayTools.insertSort(arr);
         System.err.println(Arrays.toString(arr));
     }
 }
