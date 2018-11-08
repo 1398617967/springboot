@@ -1,0 +1,54 @@
+server:
+  port: 8443
+  servlet:
+    context-path: /springboot-web
+  # 证书路径
+  ssl:
+    key-store: tomcat.key
+    key-store-type: JKS
+    key-alias: tomcat
+    # 配置密码，就是在生成证书的时候输入的密码
+    key-password: liuzhuo
+
+
+#自定义属性配置
+boot.ip: www.baidu.com
+boot.name: 刘卓
+boot.age: 23
+
+
+#处理中文乱码
+spring:
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+
+  #前端视图展示采用jsp
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+
+  #配置mysql数据库连接信息
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/live?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+  #redis
+  redis:
+    host: localhost
+    port: 6379
+    #redis 集群中哨兵模式的配置
+    #sentinel:
+     # master: mymaster
+     # nodes: 192.168.1.156:26380,192.168.1.156:26381,192.168.1.156:26382
+
+
+
+#mapper文件的位置
+mybatis:
+  mapper-locations: classpath:com/lz/springboot/mapper/*.xml

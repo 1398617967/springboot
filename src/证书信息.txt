@@ -1,0 +1,15 @@
+生成证书:keytool -genkeypair -alias tomcat -keyalg RSA -keystore E:\tomcat.key
+钥匙库口令:
+liuzhuo
+您的名字与姓氏是什么?
+liu
+您的组织单位名称是什么?
+zkhz
+您的组织名称是什么?
+zkhz
+您所在的城市或区域名称是什么?
+lnsy
+您所在的省/市/自治区名称是什么?
+lnsy
+该单位的双字母国家/地区代码是什么?
+lnsy

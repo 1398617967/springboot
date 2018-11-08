@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lz.springboot.mapper.LiveActivityTeamMapper">
+    <resultMap id="BaseResultMap" type="com.lz.springboot.bean.LiveActivityTeam">
+        <id column="team_id" property="teamId" jdbcType="CHAR"/>
+        <result column="activity_id" property="activityId" jdbcType="BIGINT"/>
+        <result column="cus_id" property="cusId" jdbcType="CHAR"/>
+        <result column="team_name" property="teamName" jdbcType="VARCHAR"/>
+        <result column="leader_name" property="leaderName" jdbcType="VARCHAR"/>
+        <result column="leader_phone" property="leaderPhone" jdbcType="VARCHAR"/>
+        <result column="applicant_name" property="applicantName" jdbcType="VARCHAR"/>
+        <result column="applicant_phone" property="applicantPhone" jdbcType="VARCHAR"/>
+        <result column="emergency_contact" property="emergencyContact" jdbcType="VARCHAR"/>
+        <result column="emergency_phone" property="emergencyPhone" jdbcType="VARCHAR"/>
+        <result column="eroll_time" property="erollTime" jdbcType="TIMESTAMP"/>
+        <result column="eroll_resource" property="erollResource" jdbcType="INTEGER"/>
+        <result column="members_num" property="membersNum" jdbcType="INTEGER"/>
+        <result column="audit_status" property="auditStatus" jdbcType="INTEGER"/>
+        <result column="refuse_reason" property="refuseReason" jdbcType="VARCHAR"/>
+        <result column="uploader_phone" property="uploaderPhone" jdbcType="VARCHAR"/>
+        <result column="uploader_name" property="uploaderName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        team_id, activity_id, cus_id, team_name, leader_name, leader_phone, applicant_name,
+        applicant_phone, emergency_contact, emergency_phone, eroll_time, eroll_resource,
+        members_num, audit_status, refuse_reason, uploader_phone, uploader_name
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from live_activity_team
+        where team_id = #{teamId,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from live_activity_team
+        where team_id = #{teamId,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="com.lz.springboot.bean.LiveActivityTeam">
+        insert into live_activity_team (team_id, activity_id, cus_id,
+        team_name, leader_name, leader_phone,
+        applicant_name, applicant_phone, emergency_contact,
+        emergency_phone, eroll_time, eroll_resource,
+        members_num, audit_status, refuse_reason,
+        uploader_phone, uploader_name)
+        values (#{teamId,jdbcType=CHAR}, #{activityId,jdbcType=BIGINT}, #{cusId,jdbcType=CHAR},
+        #{teamName,jdbcType=VARCHAR}, #{leaderName,jdbcType=VARCHAR}, #{leaderPhone,jdbcType=VARCHAR},
+        #{applicantName,jdbcType=VARCHAR}, #{applicantPhone,jdbcType=VARCHAR}, #{emergencyContact,jdbcType=VARCHAR},
+        #{emergencyPhone,jdbcType=VARCHAR}, #{erollTime,jdbcType=TIMESTAMP}, #{erollResource,jdbcType=INTEGER},
+        #{membersNum,jdbcType=INTEGER}, #{auditStatus,jdbcType=INTEGER}, #{refuseReason,jdbcType=VARCHAR},
+        #{uploaderPhone,jdbcType=VARCHAR}, #{uploaderName,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.lz.springboot.bean.LiveActivityTeam">
+        insert into live_activity_team
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="teamId != null">
+                team_id,
+            </if>
+            <if test="activityId != null">
+                activity_id,
+            </if>
+            <if test="cusId != null">
+                cus_id,
+            </if>
+            <if test="teamName != null">
+                team_name,
+            </if>
+            <if test="leaderName != null">
+                leader_name,
+            </if>
+            <if test="leaderPhone != null">
+                leader_phone,
+            </if>
+            <if test="applicantName != null">
+                applicant_name,
+            </if>
+            <if test="applicantPhone != null">
+                applicant_phone,
+            </if>
+            <if test="emergencyContact != null">
+                emergency_contact,
+            </if>
+            <if test="emergencyPhone != null">
+                emergency_phone,
+            </if>
+            <if test="erollTime != null">
+                eroll_time,
+            </if>
+            <if test="erollResource != null">
+                eroll_resource,
+            </if>
+            <if test="membersNum != null">
+                members_num,
+            </if>
+            <if test="auditStatus != null">
+                audit_status,
+            </if>
+            <if test="refuseReason != null">
+                refuse_reason,
+            </if>
+            <if test="uploaderPhone != null">
+                uploader_phone,
+            </if>
+            <if test="uploaderName != null">
+                uploader_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="teamId != null">
+                #{teamId,jdbcType=CHAR},
+            </if>
+            <if test="activityId != null">
+                #{activityId,jdbcType=BIGINT},
+            </if>
+            <if test="cusId != null">
+                #{cusId,jdbcType=CHAR},
+            </if>
+            <if test="teamName != null">
+                #{teamName,jdbcType=VARCHAR},
+            </if>
+            <if test="leaderName != null">
+                #{leaderName,jdbcType=VARCHAR},
+            </if>
+            <if test="leaderPhone != null">
+                #{leaderPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="applicantName != null">
+                #{applicantName,jdbcType=VARCHAR},
+            </if>
+            <if test="applicantPhone != null">
+                #{applicantPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="emergencyContact != null">
+                #{emergencyContact,jdbcType=VARCHAR},
+            </if>
+            <if test="emergencyPhone != null">
+                #{emergencyPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="erollTime != null">
+                #{erollTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="erollResource != null">
+                #{erollResource,jdbcType=INTEGER},
+            </if>
+            <if test="membersNum != null">
+                #{membersNum,jdbcType=INTEGER},
+            </if>
+            <if test="auditStatus != null">
+                #{auditStatus,jdbcType=INTEGER},
+            </if>
+            <if test="refuseReason != null">
+                #{refuseReason,jdbcType=VARCHAR},
+            </if>
+            <if test="uploaderPhone != null">
+                #{uploaderPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="uploaderName != null">
+                #{uploaderName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.lz.springboot.bean.LiveActivityTeam">
+        update live_activity_team
+        <set>
+            <if test="activityId != null">
+                activity_id = #{activityId,jdbcType=BIGINT},
+            </if>
+            <if test="cusId != null">
+                cus_id = #{cusId,jdbcType=CHAR},
+            </if>
+            <if test="teamName != null">
+                team_name = #{teamName,jdbcType=VARCHAR},
+            </if>
+            <if test="leaderName != null">
+                leader_name = #{leaderName,jdbcType=VARCHAR},
+            </if>
+            <if test="leaderPhone != null">
+                leader_phone = #{leaderPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="applicantName != null">
+                applicant_name = #{applicantName,jdbcType=VARCHAR},
+            </if>
+            <if test="applicantPhone != null">
+                applicant_phone = #{applicantPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="emergencyContact != null">
+                emergency_contact = #{emergencyContact,jdbcType=VARCHAR},
+            </if>
+            <if test="emergencyPhone != null">
+                emergency_phone = #{emergencyPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="erollTime != null">
+                eroll_time = #{erollTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="erollResource != null">
+                eroll_resource = #{erollResource,jdbcType=INTEGER},
+            </if>
+            <if test="membersNum != null">
+                members_num = #{membersNum,jdbcType=INTEGER},
+            </if>
+            <if test="auditStatus != null">
+                audit_status = #{auditStatus,jdbcType=INTEGER},
+            </if>
+            <if test="refuseReason != null">
+                refuse_reason = #{refuseReason,jdbcType=VARCHAR},
+            </if>
+            <if test="uploaderPhone != null">
+                uploader_phone = #{uploaderPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="uploaderName != null">
+                uploader_name = #{uploaderName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where team_id = #{teamId,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.lz.springboot.bean.LiveActivityTeam">
+        update live_activity_team
+        set activity_id = #{activityId,jdbcType=BIGINT},
+        cus_id = #{cusId,jdbcType=CHAR},
+        team_name = #{teamName,jdbcType=VARCHAR},
+        leader_name = #{leaderName,jdbcType=VARCHAR},
+        leader_phone = #{leaderPhone,jdbcType=VARCHAR},
+        applicant_name = #{applicantName,jdbcType=VARCHAR},
+        applicant_phone = #{applicantPhone,jdbcType=VARCHAR},
+        emergency_contact = #{emergencyContact,jdbcType=VARCHAR},
+        emergency_phone = #{emergencyPhone,jdbcType=VARCHAR},
+        eroll_time = #{erollTime,jdbcType=TIMESTAMP},
+        eroll_resource = #{erollResource,jdbcType=INTEGER},
+        members_num = #{membersNum,jdbcType=INTEGER},
+        audit_status = #{auditStatus,jdbcType=INTEGER},
+        refuse_reason = #{refuseReason,jdbcType=VARCHAR},
+        uploader_phone = #{uploaderPhone,jdbcType=VARCHAR},
+        uploader_name = #{uploaderName,jdbcType=VARCHAR}
+        where team_id = #{teamId,jdbcType=CHAR}
+    </update>
+
+
+    <select id="selectLiveActivityTeam" resultMap="BaseResultMap">
+        select * from live_activity_team
+    </select>
+</mapper>

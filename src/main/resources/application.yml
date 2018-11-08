@@ -1,0 +1,6 @@
+#激活多环境配置文件
+spring:
+  profiles:
+    active: dev
+
+
