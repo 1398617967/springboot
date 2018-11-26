@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 @MapperScan("com.lz.springboot.mapper")
-@ComponentScan(basePackages={"com.lz.springboot"})
+@ComponentScan(basePackages = {"com.lz.springboot"})
 public class SpringbootWebApplication {
 
     public static void main(String[] args) {

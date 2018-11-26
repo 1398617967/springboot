@@ -34,24 +34,24 @@ public class LiveActivityTeamServiceImpl implements LiveActivityTeamService {
     private LiveActivityTeamMapper liveActivityTeamMapper;
 
     @Autowired
-    private RedisTemplate<Object,Object> redisTemplate ;
+    private RedisTemplate<Object, Object> redisTemplate;
 
     @Override
     public List<LiveActivityTeam> getLiveActivityTeam() {
         //查询缓存
-        List<LiveActivityTeam> liveActivityTeam =(List<LiveActivityTeam>)redisTemplate.opsForValue().get("liveActivityTeam");
-        if(liveActivityTeam ==null || liveActivityTeam.size()==0){
+        List<LiveActivityTeam> liveActivityTeam = (List<LiveActivityTeam>) redisTemplate.opsForValue().get("liveActivityTeam");
+        if (liveActivityTeam == null || liveActivityTeam.size() == 0) {
             synchronized (this) {
                 liveActivityTeam = (List<LiveActivityTeam>) redisTemplate.opsForValue().get("liveActivityTeam");
                 if (liveActivityTeam == null || liveActivityTeam.size() == 0) {
                     System.err.println("查询数据库......");
                     liveActivityTeam = liveActivityTeamMapper.selectLiveActivityTeam();
                     redisTemplate.opsForValue().set("liveActivityTeam", liveActivityTeam);
-                }else{
+                } else {
                     System.out.println("查询缓存......");
                 }
             }
-        }else {
+        } else {
             System.out.println("查询缓存........");
         }
 

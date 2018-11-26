@@ -10,7 +10,7 @@
 package com.lz.springboot.demo;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈二叉树〉
  *
  * @author Administrator
@@ -28,42 +28,40 @@ public class BinaryTree {
         return root;
     }
 
-    public void frontShow(){
-       if(root != null){
-           root.frontShow();
-       }
+    public void frontShow() {
+        if (root != null) {
+            root.frontShow();
+        }
     }
 
-    public void midShow(){
-        if(root != null) {
+    public void midShow() {
+        if (root != null) {
             root.midShow();
         }
     }
 
-    public void endShow(){
-        if(root != null){
+    public void endShow() {
+        if (root != null) {
             root.endShow();
         }
     }
 
-    public TreeNode frontSearch(int i ){
-        return  root.frontSearch(i);
+    public TreeNode frontSearch(int i) {
+        return root.frontSearch(i);
     }
 
-    public void delete(int i ){
-       if(root.value == i){
-           root = null;
-       }else {
-           root.delete(i);
-       }
+    public void delete(int i) {
+        if (root.value == i) {
+            root = null;
+        } else {
+            root.delete(i);
+        }
     }
 }
 
 
-
-
-class Test{
-    public static void main(String[] args){
+class Test2 {
+    public static void main(String[] args) {
         //创建一棵树
         BinaryTree binaryTree = new BinaryTree();
         //创建一个根节点
@@ -93,7 +91,7 @@ class Test{
         binaryTree.endShow();
         System.err.println("===============================");
         //前序查找
-        TreeNode five =binaryTree.frontSearch(5);
+        TreeNode five = binaryTree.frontSearch(5);
         System.err.println(five);
         //删除一个子树
         binaryTree.delete(1);

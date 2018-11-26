@@ -19,16 +19,18 @@ package com.lz.springboot.demo;
  */
 public class Node {
 
-    Node  pre = this;
-    Node  next =this;
-    int data ;
+    Node pre = this;
+    Node next = this;
+    int data;
 
-    public Node(int data){
+    public Node(int data) {
         this.data = data;
     }
 
-    /** 新增节点 */
-    public void after(Node node){
+    /**
+     * 新增节点
+     */
+    public void after(Node node) {
         //当前节点的下一个节点指向
         Node nextNode = this.next;
         //当前节点指向下一个节点
@@ -41,18 +43,24 @@ public class Node {
         node.next = nextNode;
     }
 
-    /** 获取下一个节点 */
-    public  Node getNext(){
+    /**
+     * 获取下一个节点
+     */
+    public Node getNext() {
         return this.next;
     }
 
-    /** 获取上一个节点 */
-    public  Node getPre(){
+    /**
+     * 获取上一个节点
+     */
+    public Node getPre() {
         return this.pre;
     }
 
-    /** 获取数据 */
-    public  int getData(){
+    /**
+     * 获取数据
+     */
+    public int getData() {
         return this.data;
     }
 

@@ -8,6 +8,7 @@
  * liuzhuo        2018/10/30 8:42      1.0.0             描述
  */
 package com.lz.springboot.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -19,7 +20,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈swagger配置〉
  *
  * @author Administrator

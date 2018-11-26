@@ -1,7 +1,7 @@
 package com.lz.springboot.demo;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈线索二叉树的节点〉
  *
  * @author Administrator
@@ -9,18 +9,26 @@ package com.lz.springboot.demo;
  * @since 1.0.0
  */
 public class ClodTreeNode {
-    /** 节点的权 */
+    /**
+     * 节点的权
+     */
     int value;
-    /** 左后代 */
+    /**
+     * 左后代
+     */
     ClodTreeNode leftNode;
-    /** 右后代 */
+    /**
+     * 右后代
+     */
     ClodTreeNode rigntNode;
-    /** 标识指针类型 */
+    /**
+     * 标识指针类型
+     */
     int leftType;
     int rightType;
 
-    public ClodTreeNode(int value){
-        this.value =value;
+    public ClodTreeNode(int value) {
+        this.value = value;
     }
 
     public void setLeftNode(ClodTreeNode lNode) {
@@ -31,40 +39,40 @@ public class ClodTreeNode {
         this.rigntNode = rNode;
     }
 
-    public void frontShow(){
-       //先遍历当前节点的内容
+    public void frontShow() {
+        //先遍历当前节点的内容
         System.err.println(value);
-       //左节点
-        if(leftNode!=null) {
+        //左节点
+        if (leftNode != null) {
             leftNode.frontShow();
         }
         //右节点
-        if(rigntNode!=null) {
+        if (rigntNode != null) {
             rigntNode.frontShow();
         }
     }
 
-    public void midShow(){
+    public void midShow() {
         //左节点
-        if(leftNode!=null){
+        if (leftNode != null) {
             leftNode.midShow();
         }
         //先遍历当前节点的内容
         System.err.println(value);
         //右节点
-        if(rigntNode!=null) {
+        if (rigntNode != null) {
             rigntNode.midShow();
         }
     }
 
-    public void endShow(){
+    public void endShow() {
         //左节点
-        if(leftNode!=null){
+        if (leftNode != null) {
             leftNode.endShow();
         }
 
         //右节点
-        if(rigntNode!=null) {
+        if (rigntNode != null) {
             rigntNode.endShow();
         }
 
@@ -72,42 +80,42 @@ public class ClodTreeNode {
         System.err.println(value);
     }
 
-    public ClodTreeNode frontSearch(int i){
-        ClodTreeNode target=null;
-       //对比当前节点的值
-        if(this.value==i){
+    public ClodTreeNode frontSearch(int i) {
+        ClodTreeNode target = null;
+        //对比当前节点的值
+        if (this.value == i) {
             return this;
-        }else {
+        } else {
             //查找左节点
-            if(leftNode!=null){
+            if (leftNode != null) {
                 target = leftNode.frontSearch(i);
             }
-            if(target!=null){
+            if (target != null) {
                 return target;
             }
-            if(rigntNode!=null){
+            if (rigntNode != null) {
                 target = rigntNode.frontSearch(i);
             }
         }
         return target;
     }
 
-    public void delete(int i){
+    public void delete(int i) {
         ClodTreeNode parent = this;
-        if(parent.leftNode!=null){
-            if(parent.leftNode.value==i){
+        if (parent.leftNode != null) {
+            if (parent.leftNode.value == i) {
                 parent.leftNode = null;
                 return;
-            }else {
+            } else {
                 parent.leftNode.delete(i);
             }
         }
 
-        if(parent.rigntNode!=null){
-            if(parent.rigntNode.value==i){
+        if (parent.rigntNode != null) {
+            if (parent.rigntNode.value == i) {
                 parent.rigntNode = null;
                 return;
-            }else {
+            } else {
                 parent.rigntNode.delete(i);
             }
         }

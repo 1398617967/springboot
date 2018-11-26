@@ -10,7 +10,7 @@
 package com.lz.springboot.demo;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈二叉树〉
  *
  * @author Administrator
@@ -20,64 +20,80 @@ package com.lz.springboot.demo;
 public class ClodBinaryTree {
     ClodTreeNode root;
 
-    /** 设置根节点 */
+    /**
+     * 设置根节点
+     */
     public void setRoot(ClodTreeNode root) {
         this.root = root;
     }
 
-    /** 获取根节点 */
+    /**
+     * 获取根节点
+     */
     public ClodTreeNode getRoot() {
         return root;
     }
 
-    /** 中序线索化二叉树 */
-    public void clodNodes(){
+    /**
+     * 中序线索化二叉树
+     */
+    public void clodNodes() {
         clodNodes(root);
     }
 
-    public void clodNodes(ClodTreeNode root){
+    public void clodNodes(ClodTreeNode root) {
 
     }
 
-    /** 前序遍历 */
-    public void frontShow(){
-       if(root != null){
-           root.frontShow();
-       }
+    /**
+     * 前序遍历
+     */
+    public void frontShow() {
+        if (root != null) {
+            root.frontShow();
+        }
     }
 
-    /** 中序遍历 */
-    public void midShow(){
-        if(root != null) {
+    /**
+     * 中序遍历
+     */
+    public void midShow() {
+        if (root != null) {
             root.midShow();
         }
     }
 
-    /** 后序遍历 */
-    public void endShow(){
-        if(root != null){
+    /**
+     * 后序遍历
+     */
+    public void endShow() {
+        if (root != null) {
             root.endShow();
         }
     }
 
-    /** 前序查找 */
-    public ClodTreeNode frontSearch(int i ){
-        return  root.frontSearch(i);
+    /**
+     * 前序查找
+     */
+    public ClodTreeNode frontSearch(int i) {
+        return root.frontSearch(i);
     }
 
-    /** 删除子树 */
-    public void delete(int i ){
-       if(root.value == i){
-           root = null;
-       }else {
-           root.delete(i);
-       }
+    /**
+     * 删除子树
+     */
+    public void delete(int i) {
+        if (root.value == i) {
+            root = null;
+        } else {
+            root.delete(i);
+        }
     }
 }
 
 
-class Test1{
-    public static void main(String[] args){
+class Test1 {
+    public static void main(String[] args) {
 
     }
 }
