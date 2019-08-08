@@ -10,15 +10,13 @@
 package com.lz.springboot.demo;
 
 /**
- * 〈一句话功能简述〉<br>
  * 〈测试〉
- *
  * @author Administrator
  * @create 2018/11/13
  * @since 1.0.0
  */
 public class Test {
     public static void main(String[] args) {
-
     }
+    public final static  int a = 1;
 }

@@ -9,7 +9,8 @@
  */
 package com.lz.springboot.tools;
 
-import java.util.Arrays;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -238,9 +239,27 @@ public class ArrayTools {
 
 class B {
     public static void main(String[] args) {
-        int[] arr = {11, 222, 24, 84, 195, 0};
-        arr = ArrayTools.insertSort(arr);
-        System.err.println(Arrays.toString(arr));
+
+        String year = "2018 12 01";
+        System.out.println( year.substring(0,4));
+        System.out.println( year.substring(5,7));
+    }
+    public static  String getFirstDayOfMonth(int year,int month){
+        SimpleDateFormat sm = new SimpleDateFormat("yyyy/MM/dd");
+        Calendar calendar= Calendar.getInstance();
+        calendar.set(Calendar.YEAR,year);
+        calendar.set(Calendar.MONTH,month-1);
+        calendar.set(Calendar.DAY_OF_MONTH,1);
+        return  sm.format(calendar.getTime());
+    }
+
+    public static  String getLastDayOfMonth(int year,int month){
+        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar= Calendar.getInstance();
+        calendar.set(Calendar.YEAR,year);
+        calendar.set(Calendar.MONTH,month-1);
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+        return  sm.format(calendar.getTime());
     }
 }
 
